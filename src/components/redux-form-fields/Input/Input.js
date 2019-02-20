@@ -9,7 +9,7 @@ const Input = ({
   disabled,
   handleOnChange,
   maxLength,
-  input: { type, value },
+  input: { type, value, onBlur },
   ...props
 }) => (
   <div className="bricks-input" style={style}>
@@ -20,6 +20,7 @@ const Input = ({
       error={!!(touched && error)}
       {...props}
       onChange={handleOnChange}
+      onBlur={onBlur}
       maxLength={maxLength}
       value={value}
       type="text"

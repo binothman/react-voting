@@ -1,3 +1,4 @@
 import Login from './Login'
+import HOC from './HOC'
 
-export default Login
+export default HOC(Login)
