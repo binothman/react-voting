@@ -1,16 +1,31 @@
 import React, { Component } from 'react';
 import { HashRouter } from 'react-router-dom'
 import RootRouter from './routers/RootRouter'
+import fire from './config/fire'
 
 // CSS
 import './app.css'
 import 'semantic-ui-css/semantic.min.css'
 
 class App extends Component {
+  state = {
+    user: null,
+  }
+  componentDidMount(){
+    this.authListener()
+  }
+
+  authListener = () => {
+    fire.auth().onAuthStateChanged(user => {
+      console.log('user', user)
+      this.setState({ user })
+    })
+  }
+
   render() {
     return (
       <HashRouter>
-        <RootRouter />
+        <RootRouter user={this.state.user} />
       </HashRouter>
     )
   }

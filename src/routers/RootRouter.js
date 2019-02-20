@@ -1,8 +1,8 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
-import fire from '../config/fire'
+import { Switch } from 'react-router-dom'
 
-//import RedirectRoute from './RedirectRoute'
+
+import RedirectRoute from './RedirectRoute'
 
 // Pages Components
 import Login from '../components/Login'
@@ -10,11 +10,26 @@ import Voting from '../components/Voting'
 import Signup from '../components/Signup'
 
 
-const RootRouter = () => (
+const RootRouter = ({ user }) => (
   <Switch>
-    <Route exact path="/login" component={Login} />
-    <Route exact path="/signup" component={Signup} />
-    <Route exact path="/" component={Voting} />
+    <RedirectRoute
+      path="/login"
+      component={Login}
+      condition={!user}
+      redirect="/"
+    />
+    <RedirectRoute
+      path="/signup"
+      component={Signup}
+      condition={!user}
+      redirect="/"
+    />
+    <RedirectRoute
+      path="/"
+      component={Voting}
+      condition={user}
+      redirect="/login"
+    />
   </Switch>
 )
 
