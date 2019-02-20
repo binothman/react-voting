@@ -1,5 +1,8 @@
 import React from 'react'
 import { Sticky, Button, Image, Grid, Header as SemHeader } from 'semantic-ui-react'
+import fire from '../../config/fire'
+
+const logout = () => fire.auth().signOut()
 
 const Header = () => (
   <Sticky>
@@ -22,6 +25,7 @@ const Header = () => (
             basic
             color="red"
             size="mini"
+            onClick={logout}
           />
         </Grid.Column>
       </Grid>
