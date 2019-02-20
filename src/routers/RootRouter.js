@@ -15,19 +15,19 @@ const RootRouter = ({ user }) => (
     <RedirectRoute
       path="/login"
       component={Login}
-      condition={!user}
+      condition={!!!user}
       redirect="/"
     />
     <RedirectRoute
       path="/signup"
       component={Signup}
-      condition={!user}
+      condition={!!user}
       redirect="/"
     />
     <RedirectRoute
       path="/"
       component={Voting}
-      condition={user}
+      condition={!!user}
       redirect="/login"
     />
   </Switch>

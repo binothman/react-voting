@@ -11,13 +11,13 @@ class App extends Component {
   state = {
     user: null,
   }
+  
   componentDidMount(){
     this.authListener()
   }
 
   authListener = () => {
     fire.auth().onAuthStateChanged(user => {
-      console.log('user', user)
       this.setState({ user })
     })
   }

@@ -1,0 +1,11 @@
+html[dir='rtl'] .bricks-input__label {
+  text-align: right;
+}
+
+html[dir='rtl'] .bricks-input--error {
+  text-align: right;
+}
+
+html[dir='rtl'] .ui.fluid.input > input {
+  text-align: right;
+}

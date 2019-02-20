@@ -1,0 +1,12 @@
+.bricks-input {
+  margin-bottom: 20px;
+}
+.bricks-input__label {
+  margin-bottom: 5px;
+}
+.bricks-input--error {
+  color: #d15353;
+  font-size: 12px;
+  padding-left: 5px;
+  position: absolute;
+}
