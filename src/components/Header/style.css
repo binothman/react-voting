@@ -1,0 +1,6 @@
+.app-header{
+  background: #fff;
+  border-bottom: 1px solid #ededed;
+  padding: 10px 30px;
+  box-shadow: 1px 0 2px rgba(0,0,0, 0.5);
+}
