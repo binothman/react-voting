@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Container, Form, Button, Grid } from 'semantic-ui-react'
 
 const Login = () => (
@@ -13,7 +14,12 @@ const Login = () => (
             <input placeholder='Password' />
           </Form.Field>
           <Button primary type='submit'>Login</Button>
-          <Button basic type='submit'>Signup</Button>
+          <Button
+            content="Signup"
+            as={Link}
+            to="/signup"
+            basic
+          />
         </Form>
       </Grid.Column>
     </Grid>
