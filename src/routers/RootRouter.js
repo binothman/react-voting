@@ -21,7 +21,7 @@ const RootRouter = ({ user }) => (
     <RedirectRoute
       path="/signup"
       component={Signup}
-      condition={!!user}
+      condition={!!!user}
       redirect="/"
     />
     <RedirectRoute

@@ -6,12 +6,11 @@ import { Container, Button, Grid, Message } from 'semantic-ui-react'
 
 import { required } from '../../functions'
 
-const Login = ({ error, handleSubmit }) => (
+const Login = ({ err, handleSubmit }) => (
   <Container style={{marginTop: 50}}>
     <Grid centered columns={1}>
       <Grid.Column computer={8} mobile={16}>
-        {console.log('error', error)}
-        {error && <Message color='red'>{error.message}</Message>}
+        {err && <Message color='red'>{err.message}</Message>}
         <Field
           name="email"
           component={Input}

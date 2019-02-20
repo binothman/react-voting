@@ -4,14 +4,11 @@ import fire from '../../config/fire'
 const HOC = WrappedComponent => {
   class Login extends Component{
     state = {
-      error: null,
+      err: null,
     }
     handleOnSubmit = user => {
       fire.auth().signInWithEmailAndPassword(user.email, user.password)
-      .catch(error => {
-        //console.log('error', error)
-        this.setState({ error })
-      })
+      .catch(err => this.setState({ err }))
     }
 
     render(){
@@ -19,7 +16,7 @@ const HOC = WrappedComponent => {
         <WrappedComponent
           {...this.props}
           onSubmit={this.handleOnSubmit}
-          error="ghsagd"
+          err={this.state.err}
         />
       )
     }
