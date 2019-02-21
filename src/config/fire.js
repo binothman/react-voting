@@ -2,12 +2,12 @@ import React from 'react'
 import firebase from 'firebase'
 
 const config = {
-  apiKey: "AIzaSyA4qbtqWUgUtuFb46IWW1KPwVEvJkqiMKE",
-  authDomain: "voting-91980.firebaseapp.com",
-  databaseURL: "https://voting-91980.firebaseio.com",
-  projectId: "voting-91980",
-  storageBucket: "voting-91980.appspot.com",
-  messagingSenderId: "723295294868"
+  apiKey: "AIzaSyCBm_nzm142RxzrCjSHeNpvAufjOHO2Cpc",
+  authDomain: "voting-cce17.firebaseapp.com",
+  databaseURL: "https://voting-cce17.firebaseio.com",
+  projectId: "voting-cce17",
+  storageBucket: "voting-cce17.appspot.com",
+  messagingSenderId: "15394643496"
 }
 
 const fire = firebase.initializeApp(config)
