@@ -7,11 +7,14 @@ import fire from './config/fire'
 import './app.css'
 import 'semantic-ui-css/semantic.min.css'
 
+export const UserContext = React.createContext({
+  user: {},
+})
 class App extends Component {
   state = {
     user: null,
   }
-  
+
   componentDidMount(){
     this.authListener()
   }
@@ -19,6 +22,7 @@ class App extends Component {
   authListener = () => {
     fire.auth().onAuthStateChanged(user => {
       this.setState({ user })
+      console.log('user', user)
     })
   }
 

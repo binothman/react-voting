@@ -15,7 +15,7 @@ const Header = () => (
               size="tiny"
               src='https://react.semantic-ui.com/images/avatar/large/patrick.png'
             />
-            Patrick
+            {fire.auth().currentUser.displayName}
           </SemHeader>
         </Grid.Column>
         <Grid.Column textAlign="right" width={8}>

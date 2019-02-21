@@ -1,3 +1,4 @@
 import Signup from './Signup'
+import HOC from './HOC'
 
-export default Signup
+export default HOC(Signup)
