@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { reduxForm, Field } from 'redux-form'
 import Input from '../redux-form-fields/Input'
-import { Container, Button, Grid, Message, Dimmer, Loader } from 'semantic-ui-react'
+import { Header, Container, Button, Grid, Message, Dimmer, Loader } from 'semantic-ui-react'
 
 import { required } from '../../functions'
 
@@ -10,6 +10,7 @@ const Login = ({ loading, err, handleSubmit }) => (
   <Container style={{marginTop: 50}}>
     <Grid centered columns={1}>
       <Grid.Column computer={8} mobile={16}>
+        <Header as="h3">Login</Header>
         {loading &&
           <Dimmer active inverted>
             <Loader inverted content='Loading' />
