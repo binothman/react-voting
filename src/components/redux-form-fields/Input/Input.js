@@ -10,10 +10,11 @@ const Input = ({
   handleOnChange,
   maxLength,
   type,
+  textAlign,
   input: { value, onBlur },
   ...props
 }) => (
-  <div className="bricks-input" style={style}>
+  <div className={`bricks-input ${textAlign && `text-align--${textAlign}`}`} style={style}>
     <div className="bricks-input__label">{title}</div>
     <SemInput
       disabled={disabled}

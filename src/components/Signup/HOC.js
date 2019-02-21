@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import fire from '../../config/fire'
 
+const db = fire.firestore()
 const HOC = WrappedComponent => {
   class Signup extends Component{
     state = {
@@ -15,7 +16,22 @@ const HOC = WrappedComponent => {
         u.user.updateProfile({
           displayName: user.fullname,
         })
-        u.user.sendEmailVerification()
+        const code = parseInt(Math.random() * (1000000 - 100000) + 100000)
+        db.collection('users').doc(u.user.uid).set({
+          code,
+          verified: false
+        })
+        window.emailjs.send(
+          'gmail',
+          'template_lGBiT47U',
+          {
+            to_name: user.fullname,
+            receiverEmail: user.email,
+            message_html: code,
+          }
+        )
+        .catch(err => console.log('err', err))
+        //u.user.sendEmailVerification()
       })
       .catch(err => this.setState({ err, loading: false }))
     }

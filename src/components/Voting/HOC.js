@@ -9,10 +9,11 @@ const HOC = WrappedComponent => {
       candidates: [],
       isVoted: false,
       candiate: {},
+      verified: null,
     }
 
     componentDidMount(){
-      this.isVoted()
+      this.isVerified()
     }
 
     getCandidates = () => {
@@ -38,6 +39,19 @@ const HOC = WrappedComponent => {
       })
     }
 
+    isVerified = () => {
+      const uid = fire.auth().currentUser.uid
+      db.collection('users').doc(uid).onSnapshot(doc => {
+        const data = doc.data() || {}
+        if (data.verified){
+          this.isVoted()
+        }else{
+          this.setState({ candidates: [], isVoted: false })
+        }
+        this.setState({verified: data.verified})
+      })
+    }
+
     isVoted = () => {
       const uid = fire.auth().currentUser.uid
       db.collection('voting').doc(uid).onSnapshot(doc => {
@@ -52,7 +66,6 @@ const HOC = WrappedComponent => {
     }
 
     render(){
-      console.log('isVoted', this.state.isVoted)
       return (
         <WrappedComponent
           {...this.props}
@@ -60,6 +73,7 @@ const HOC = WrappedComponent => {
           handleVote={this.handleVote}
           isVoted={this.state.isVoted}
           candiate={this.state.candiate}
+          verified={this.state.verified}
         />
       )
     }

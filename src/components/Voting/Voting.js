@@ -1,11 +1,13 @@
 import React from 'react'
 import { Card, Button, Container, Grid, Icon, Header as Title } from 'semantic-ui-react'
 import Header from '../Header'
+import Verification from '../Verification'
 
-const Voting = ({ candiate, isVoted, candidates, handleVote }) => (
+const Voting = ({ verified, candiate, isVoted, candidates, handleVote }) => (
   <React.Fragment>
     <Header />
     <Container style={{marginTop: 20}}>
+      {verified === false && <Verification />}
       {isVoted &&
         <Grid centered columns={1}>
           <Grid.Column computer={8} mobile={16} textAlign="center">
@@ -19,7 +21,7 @@ const Voting = ({ candiate, isVoted, candidates, handleVote }) => (
           </Grid.Column>
         </Grid>
       }
-      <Card.Group itemsPerRow={4}>
+      <Card.Group stackable itemsPerRow={4}>
         {candidates.map(candidate => (
           <Card
             raised
