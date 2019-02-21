@@ -7,7 +7,7 @@ const logout = () => fire.auth().signOut()
 class Header extends React.Component{
   state = { user: {} }
   componentDidMount(){
-    setTimeout(this.setUser, 600)
+    setTimeout(this.setUser, 800)
   }
 
   setUser = () => {
