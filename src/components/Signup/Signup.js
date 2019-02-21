@@ -32,11 +32,13 @@ const Signup = ({ loading, err, handleSubmit }) => (
           name="password"
           component={Input}
           placeholder="Password"
+          type="password"
           validate={[ required ]}
         />
         <Field
           name="re_password"
           component={Input}
+          type="password"
           placeholder="Confirm Password"
           validate={[ required ]}
         />

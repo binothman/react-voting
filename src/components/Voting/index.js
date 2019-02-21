@@ -1,3 +1,4 @@
 import Voting from './Voting'
+import HOC from './HOC'
 
-export default Voting
+export default HOC(Voting)
