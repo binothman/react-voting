@@ -24,6 +24,12 @@ const Signup = ({ loading, err, handleSubmit }) => (
           validate={[ required ]}
         />
         <Field
+          name="id"
+          component={Input}
+          placeholder="Nationality ID"
+          validate={[ required ]}
+        />
+        <Field
           name="email"
           component={Input}
           placeholder="Email"

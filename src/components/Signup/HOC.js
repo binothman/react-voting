@@ -9,8 +9,23 @@ const HOC = WrappedComponent => {
       loading: false,
     }
 
+    isValidId = id => new Promise((resolve, reject) => {
+      db.collection('ids').doc(id).get()
+      .then(doc => {
+        if (doc.data()) resolve(true)
+        else reject({message: 'Nationality ID not founded'})
+      })
+      .catch(err => reject(err))
+    })
+
     handleOnSubmit = user => {
       this.setState({ loading: true })
+      this.isValidId(user.id.toString())
+      .then(() => this.registerNewUser(user))
+      .catch(err => this.setState({ err, loading: false }))
+    }
+
+    registerNewUser = user => {
       fire.auth().createUserWithEmailAndPassword(user.email, user.password)
       .then(u => {
         u.user.updateProfile({
@@ -30,11 +45,12 @@ const HOC = WrappedComponent => {
             message_html: code,
           }
         )
-        .catch(err => console.log('err', err))
+        .catch(err => this.setState({ err, loading: false }))
         //u.user.sendEmailVerification()
       })
       .catch(err => this.setState({ err, loading: false }))
     }
+
     render(){
       return (
         <WrappedComponent

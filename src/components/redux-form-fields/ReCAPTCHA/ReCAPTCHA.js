@@ -3,6 +3,7 @@ import Recaptcha from "react-recaptcha"
 
 class ReCAPTCHA extends React.Component {
   handleVerifyCallback = () => {
+    console.log('vvv')
     this.props.input.onChange(true)
   }
 
