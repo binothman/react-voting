@@ -8,10 +8,16 @@ import RedirectRoute from './RedirectRoute'
 import Login from '../components/Login'
 import Voting from '../components/Voting'
 import Signup from '../components/Signup'
-
+import PhoneLogin from '../components/PhoneLogin'
 
 const RootRouter = ({ user }) => (
   <Switch>
+    <RedirectRoute
+      path="/phone"
+      component={PhoneLogin}
+      condition={true}
+      redirect="/"
+    />
     <RedirectRoute
       path="/login"
       component={Login}

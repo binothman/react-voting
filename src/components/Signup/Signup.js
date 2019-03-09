@@ -4,7 +4,7 @@ import { reduxForm, Field } from 'redux-form'
 import Input from '../redux-form-fields/Input'
 import { Header, Container, Button, Grid, Dimmer, Loader, Message } from 'semantic-ui-react'
 import { required } from '../../functions'
-
+import ReCAPTCHA from '../redux-form-fields/ReCAPTCHA'
 
 const Signup = ({ loading, err, handleSubmit }) => (
   <Container style={{marginTop: 50}}>
@@ -41,6 +41,11 @@ const Signup = ({ loading, err, handleSubmit }) => (
           component={Input}
           type="password"
           placeholder="Confirm Password"
+          validate={[ required ]}
+        />
+        <Field
+          name="recaptcha"
+          component={ReCAPTCHA}
           validate={[ required ]}
         />
         <Button
