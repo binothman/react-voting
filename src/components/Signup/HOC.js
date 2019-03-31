@@ -53,7 +53,6 @@ const HOC = WrappedComponent => {
           }
         )
         .catch(err => this.setState({ err, loading: false }))
-        //u.user.sendEmailVerification()
       })
       .catch(err => this.setState({ err, loading: false }))
     }
