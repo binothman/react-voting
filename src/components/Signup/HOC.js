@@ -41,6 +41,7 @@ const HOC = WrappedComponent => {
           code,
           verified: false,
           id: user.id,
+          name: user.fullname,
         })
         window.emailjs.send(
           'gmail',
