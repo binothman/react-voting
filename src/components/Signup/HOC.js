@@ -12,7 +12,12 @@ const HOC = WrappedComponent => {
     isValidId = id => new Promise((resolve, reject) => {
       db.collection('ids').doc(id).get()
       .then(doc => {
-        if (doc.data()) resolve(true)
+        if (doc.data()){
+          // db.collection('users').where("id", "===", id)
+          // .then(() => reject({message: 'Nationality ID already taken'}))
+          // .catch(() => resolve(true))
+          resolve(true)
+        }
         else reject({message: 'Nationality ID not founded'})
       })
       .catch(err => reject(err))
