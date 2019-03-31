@@ -13,10 +13,10 @@ const HOC = WrappedComponent => {
       db.collection('ids').doc(id).get()
       .then(doc => {
         if (doc.data()){
-          // db.collection('users').where("id", "===", id)
-          // .then(() => reject({message: 'Nationality ID already taken'}))
-          // .catch(() => resolve(true))
-          resolve(true)
+          db.collection('users').where("id", "==", id).onSnapshot(snapshot => {
+            if (snapshot.empty) resolve(true)
+            else reject({message: 'Nationality ID already taken'})
+          })
         }
         else reject({message: 'Nationality ID not founded'})
       })
@@ -39,7 +39,8 @@ const HOC = WrappedComponent => {
         const code = parseInt(Math.random() * (1000000 - 100000) + 100000)
         db.collection('users').doc(u.user.uid).set({
           code,
-          verified: false
+          verified: false,
+          id: user.id,
         })
         window.emailjs.send(
           'gmail',
