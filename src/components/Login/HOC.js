@@ -7,6 +7,7 @@ const HOC = WrappedComponent => {
       err: null,
       loading: false,
     }
+    
     handleOnSubmit = user => {
       this.setState({ loading: true })
       fire.auth().signInWithEmailAndPassword(user.email, user.password)
