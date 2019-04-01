@@ -1,3 +1,5 @@
+// Make this file in secure plase, on the next sprint
+
 import React from 'react'
 import firebase from 'firebase'
 
