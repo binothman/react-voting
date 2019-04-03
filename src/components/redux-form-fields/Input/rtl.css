@@ -1,3 +1,6 @@
+/*
+  For Right To Left 
+*/
 html[dir='rtl'] .bricks-input__label {
   text-align: right;
 }

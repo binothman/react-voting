@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import fire from '../../config/fire'
 
 const db = fire.firestore()
+
 const HOC = WrappedComponent => {
   class Signup extends Component{
     state = {
