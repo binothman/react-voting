@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Recaptcha from "react-recaptcha"
 
 class ReCAPTCHA extends React.Component {
@@ -23,4 +24,7 @@ class ReCAPTCHA extends React.Component {
   }
 }
 
+ReCAPTCHA.propTypes = {
+  meta: PropTypes.object.isRequired,
+}
 export default ReCAPTCHA
